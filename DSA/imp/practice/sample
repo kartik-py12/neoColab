@@ -1,0 +1,491 @@
+Single File Programming Question
+Problem Statement
+
+
+
+Revi is fascinated by binary search trees (BSTs) and wants to perform some operations on them. He wishes to construct a binary search tree from a series of positive integers and calculate the sum of all the nodes in the BST.
+
+
+
+Write a program to help Revi implement these operations using the BST concept.
+
+Input format :
+The input consists of a series of positive integers (greater than zero) separated by a space.
+
+The input ends when -1 is entered.
+
+The integers represent the elements to be inserted into the binary search tree.
+
+Output format :
+The output displays an integer value, which represents the sum of all the nodes in the BST.
+
+
+
+Refer to the sample output for formatting specifications.
+
+Code constraints :
+The input integers will be positive and greater than zero.
+
+The number of elements in the binary search tree will be at most 100.
+
+Sample test cases :
+Input 1 :
+5
+3
+7
+2
+4
+9
+-1
+Output 1 :
+Sum of all nodes in the BST is 30
+Input 2 :
+6
+3
+1
+4
+2
+-1
+Output 2 :
+Sum of all nodes in the BST is 16
+
+
+// You are using GCC
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+  int data;
+  struct node*left;
+  struct node*right;
+};
+struct node*root;
+
+//Function to create binary search tree
+
+void append(int d)
+{
+  // Type your code here
+  
+}
+int addBT(node* root)
+{
+  if(root == NULL)
+    return 0;
+  return (root->data+addBT(root->left)+addBT(root->right));
+}
+int main()
+{
+  int d;
+  do
+  {
+    scanf("%d",&d);
+    if(d > 0)
+      append(d);
+  }while(d != -1);
+  int sum = addBT(root);
+  printf("Sum of all nodes in the BST is %d",sum);
+  return 0;
+}
+
+
+
+
+Single File Programming Question
+Problem Statement
+
+
+
+Sharon is working on a programming project that involves manipulating Binary Search Trees (BST). She is currently developing a program to delete all the odd-valued nodes in a given BST and display the resulting modified BST using an in-order traversal.
+
+
+
+Help Sharon complete this task.
+
+Input format :
+The first line of input consists of an integer N, representing the number of nodes in the BST.
+
+The second line consists of N space-separated integers, representing the values of the nodes in the BST.
+
+Output format :
+The output prints the in-order traversal of the nodes in the modified BST after deleting all odd-valued nodes.
+
+If odd-valued nodes are not found, print the in-order traversal of the given input values of nodes.
+
+The nodes should be printed using an inorder traversal, separated by a space.
+
+
+
+Refer to the sample output for formatting specifications.
+
+Code constraints :
+The given test cases will fall under the following constraints:
+
+1 ≤ N ≤ 20
+
+1 ≤ nodes ≤ 100
+
+Sample test cases :
+Input 1 :
+5
+4 6 2 8 10
+Output 1 :
+2 4 6 8 10 
+Input 2 :
+8
+44 32 55 87 99 23 12 89
+Output 2 :
+12 32 44 
+
+
+
+// You are using GCC
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node* left;
+    struct Node* right;
+};
+
+struct Node* insert(struct Node* root, int value) {
+    if (root == NULL) {
+        struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        newNode->data = value;
+        newNode->left = newNode->right = NULL;
+        return newNode;
+    }
+    if (value < root->data) {
+        root->left = insert(root->left, value);
+    } else {
+        root->right = insert(root->right, value);
+    }
+    return root;
+}
+
+struct Node* deleteOddNodes(struct Node* root) {
+    //Type your code here
+    
+}
+
+void printBST(struct Node* root) {
+    if (root == NULL) {
+        return;
+    }
+    printBST(root->left);
+    printf("%d ", root->data);
+    printBST(root->right);
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    struct Node* root = NULL;
+
+    for (int i = 0; i < n; i++) {
+        int data;
+        scanf("%d", &data);
+        root = insert(root, data);
+    }
+
+    root = deleteOddNodes(root);
+    printBST(root);
+    return 0;
+}
+
+
+
+
+
+Single File Programming Question
+Problem Statement
+
+
+
+You are provided with a collection of lowercase letters. Your objective is to create a Binary Search Tree (BST) from these letters.
+
+
+
+Once the BST is constructed, perform an in-order traversal of the tree to display the characters in ascending alphabetical order.
+
+Input format :
+The first line of input consists of a positive integer N, representing the number of letters.
+
+The second line consists of N characters, representing the letters to be inserted into the tree.
+
+Output format :
+The output prints the in-order traversal of the given characters.
+
+Code constraints :
+1 ≤ N ≤ 26
+
+The input characters will be in lowercase.
+
+Sample test cases :
+Input 1 :
+5
+k b a c m
+Output 1 :
+a b c k m 
+Input 2 :
+7
+y q w e g h k
+Output 2 :
+e g h k q w y 
+
+
+
+
+
+// You are using GCC
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+struct TreeNode {
+    char val;
+    struct TreeNode* left;
+    struct TreeNode* right;
+};
+
+#define MAX_NODES 100
+
+struct TreeNode nodes[MAX_NODES];
+
+int nodeIndex = 0;
+
+void inorderTraversal(struct TreeNode* root) {
+    //Type your code here
+    
+}
+
+struct TreeNode* insert(struct TreeNode* root, char val) {
+    //Type your code here
+    
+}
+
+int main() {
+    
+    struct TreeNode* root = NULL;
+    int numNodes;
+    char val;
+
+    scanf("%d", &numNodes);
+
+    bool validInput = true;
+
+    for (int i = 0; i < numNodes; i++) {
+        scanf(" %c", &val);
+
+        if ((val >= 'a' && val <= 'z')) {
+            root = insert(root, val);
+        }
+    }
+
+    inorderTraversal(root);
+
+    return 0;
+}
+
+
+
+
+
+
+Single File Programming Question
+Problem Statement
+
+
+
+Kumar is studying data structures and is currently learning about Binary Search Trees (BST). He wants to implement the operations of creating and displaying a Binary Search Tree.
+
+
+
+Write a program that takes a sequence of positive integers as input and constructs a BST using these integers. After constructing the BST, the program should display the nodes in ascending order.
+
+Input format :
+The input consists of a series of positive integers greater than zero, separated by a space.
+
+The input ends when -1 is entered.
+
+The integers represent the elements to be inserted into the binary search tree.
+
+Output format :
+The output displays the elements of the binary search tree in ascending order (sorted order), separated by space.
+
+
+
+Refer to the sample output for the formatting specifications.
+
+Code constraints :
+The input integers > 0.
+
+The number of elements in the binary search tree will be at most 100.
+
+Sample test cases :
+Input 1 :
+1
+2
+3
+4
+5
+-1
+Output 1 :
+1 2 3 4 5 
+Input 2 :
+7
+6
+4
+5
+3
+-1
+Output 2 :
+3 4 5 6 7 
+
+
+
+// You are using GCC
+#include<stdio.h>
+#include<stdlib.h>
+using namespace std;
+struct node
+{
+  int data;
+  struct node*left;
+  struct node*right;
+};
+struct node*root;
+void append(int d)
+{
+    //Type your code
+}
+void display(struct node*root)
+{
+    //Type your code
+}
+
+int main()
+{
+  int d;
+  do
+  {
+    scanf("%d",&d);
+    if(d > 0)
+      append(d);
+  }while(d != -1);
+  display(root);
+  return 0;
+}
+
+
+
+
+
+Single File Programming Question
+Problem Statement
+
+
+
+John, a computer science student, is learning about binary search trees (BST) and their properties. He decides to write a program to create a BST, display it in post-order traversal, and find the minimum value present in the tree.
+
+
+
+Help him by implementing the program.
+
+Input format :
+The first line of input consists of an integer N, representing the number of elements to insert into the BST.
+
+The second line consists of N space-separated integers data, which is the data to be inserted into the BST.
+
+Output format :
+The first line of output prints the space-separated elements of the BST in post-order traversal.
+
+The second line prints the minimum value found in the BST.
+
+
+
+Refer to the sample output for formatting specifications.
+
+Code constraints :
+The given test cases will fall under the following constraints:
+
+1 ≤ N ≤ 20
+
+1 ≤ data ≤ 1000
+
+Sample test cases :
+Input 1 :
+3
+5 10 15
+Output 1 :
+15 10 5 
+The minimum value in the BST is: 5
+Input 2 :
+10
+10 5 15 3 7 12 18 20 25 30
+Output 2 :
+3 7 5 12 30 25 20 18 15 10 
+The minimum value in the BST is: 3
+
+
+
+// You are using GCC
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node* left;
+    struct Node* right;
+};
+
+struct Node* createNode(int data) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = data;
+    newNode->left = newNode->right = NULL;
+    return newNode;
+}
+
+struct Node* insert(struct Node* root, int data) {
+    if (root == NULL) {
+        return createNode(data);
+    }
+
+    if (data < root->data) {
+        root->left = insert(root->left, data);
+    } else if (data > root->data) {
+        root->right = insert(root->right, data);
+    }
+
+    return root;
+}
+
+void displayTreePostOrder(struct Node* root) {
+    //Type your code here
+    
+}
+
+int findMinValue(struct Node* root) {
+    //Type your code here
+    
+}
+
+int main() {
+    struct Node* root = NULL;
+    int n, data;
+    scanf("%d", &n);
+
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &data);
+        root = insert(root, data);
+    }
+
+    displayTreePostOrder(root);
+    printf("\n");
+
+    int minValue = findMinValue(root);
+    printf("The minimum value in the BST is: %d", minValue);
+
+    return 0;
+}
