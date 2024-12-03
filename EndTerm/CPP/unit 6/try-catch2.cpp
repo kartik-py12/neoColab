@@ -37,28 +37,48 @@
 // You are using GCC
 #include <bits/stdc++.h>
 using namespace std;
+
 int main(){
     int n;
     cin>>n;
-    int count=0;
-    int sum=0;
-    int m=n;
-    while(n>0){
-        int temp=n%10;
-        sum+=temp;
-        n/=10;
-        count++;
+    int temp=n;
+    int out=0;
+    while(temp>0){
+        int rem=temp%10;
+        out=10*out+rem;
+        temp/=10;
     }
-
-    try{
-        if(m<0 || count!=3){
-            throw runtime_error("It's not a three digit Number or valid number");
-        }
-        else{
-            cout<<"Sum of the digits is "<<sum;
-        }
+    if(out==n){
+        cout<<"Pallindrome";
+    }else{
+        cout<<"Not pallindrome";
     }
-    catch(runtime_error&e){
-        cout<<e.what();
-    }
+    // cout<<out;
 }
+
+
+// int main(){
+//     int n;
+//     cin>>n;
+//     int count=0;
+//     int sum=0;
+//     int m=n;
+//     while(n>0){
+//         int temp=n%10;
+//         sum+=temp;
+//         n/=10;
+//         count++;
+//     }
+
+//     try{
+//         if(m<0 || count!=3){
+//             throw runtime_error("It's not a three digit Number or valid number");
+//         }
+//         else{
+//             cout<<"Sum of the digits is "<<sum;
+//         }
+//     }
+//     catch(runtime_error&e){
+//         cout<<e.what();
+//     }
+// }

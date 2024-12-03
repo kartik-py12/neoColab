@@ -30,19 +30,37 @@
 // You are using GCC
 #include <bits/stdc++.h>
 using namespace std;
+
 int main(){
-    int n,m;
-    cin>>n>>m;
+    int a,b;
+    cin>>a>>b;
     try{
-        if(m==0){
+        if(b==0){
             throw runtime_error("Divide by Zero Exception");
+        }else{
+            cout<<a/b<<endl;
         }
-        else{
-            cout<<n/m;
-        }
-        
-    }
-    catch(runtime_error&e){
-        cout<<e.what();
+    }catch(runtime_error&e){
+        cout<<e.what()<<endl;
     }
 }
+
+
+// int main(){
+//     int n,m;
+//     cin>>n>>m;
+//     try{
+//         if(m==0){
+//             throw runtime_error("Divide by Zero Exception");
+//         }
+//         else{
+//             cout<<n/m;
+//         }
+        
+//     }
+//     catch(runtime_error&e){
+//         cout<<e.what();
+//     }
+// }
+
+

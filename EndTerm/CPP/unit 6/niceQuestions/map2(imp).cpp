@@ -91,6 +91,7 @@ int main(){
             // name=s;
             arr[s].first=q;
             arr[s].second=p;
+            
         }
         else if(n==2){
             string name;

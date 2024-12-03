@@ -1,11 +1,7 @@
 // Single File Programming Question
 // Problem Statement
 
-
-
-// Mitha, a dedicated customer support executive, is faced with the challenge of validating mobile numbers provided by customers. To enhance the efficiency of this process, she envisions a program that not only takes a customer's mobile number as input but also ensures it is a valid 10-digit number containing only digits (0–9). 
-
-
+// Mitha, a dedicated customer support executive, is faced with the challenge of validating mobile numbers provided by customers. To enhance the efficiency of this process, she envisions a program that not only takes a customer's mobile number as input but also ensures it is a valid 10-digit number containing only digits (0–9).
 
 // Mitha desires a robust solution that utilizes exception handling to provide customers with clear feedback regarding the validity of their entered mobile numbers.
 
@@ -15,8 +11,6 @@
 // Output format :
 // The output prints in the following format:
 
-
-
 // The first line of output displays the given mobile number.
 
 // If the mobile number contains characters other than digits (0–9), the program should output "Invalid input".
@@ -24,8 +18,6 @@
 // If the mobile number has less than or greater than 10 digits, the program should output: "The mobile number should have 10 digits".
 
 // If the mobile number has exactly 10 digits and contains only digits, the program should output: "The entered mobile number is valid".
-
-
 
 // Refer to the sample output for the formatting specifications.
 
@@ -50,26 +42,35 @@
 // Output 3 :
 // Invalid input
 
-
 // You are using GCC
 #include <bits/stdc++.h>
 using namespace std;
-int main(){
+int main()
+{
     string a;
-    int count=0;
-    getline(cin,a);
-    for(char c:a){
-        count++;
-    if(!isdigit(c)){
-        cout<<"Invalid input";
-        return 0;
+    int count = 0;
+    getline(cin, a);
+    // for(char c:a){
+    //     count++;
+    count = a.length();
+    for (char c : a)
+    {
+        if (!isdigit(c))
+        {
+            cout << "Invalid input";
+            return 0;
+        }
     }
+    if (count == 10)
+    {
+        cout << a << endl;
+        ;
+        cout << "The entered mobile number is valid";
     }
-    if(count==10){
-        cout<<a<<endl;;
-        cout<<"The entered mobile number is valid";
-    }else{
-        cout<<a<<endl;;
-        cout<<"The mobile number should have 10 digits";
+    else
+    {
+        cout << a << endl;
+        ;
+        cout << "The mobile number should have 10 digits";
     }
 }
